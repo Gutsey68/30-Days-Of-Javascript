@@ -1,0 +1,44 @@
+.green {
+  background-color: #22bf73;
+}
+
+.red {
+  background-color: #fd5e53;
+}
+
+.yellow {
+  background-color: #f7dc5c;
+}
+
+.green,
+.yellow,
+.red {
+  display: inline-block;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.25rem 1rem;
+  width: 40px;
+  margin: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+input {
+  margin-bottom: 1rem;
+}
+
+#keyCode,
+.green-color {
+  color: #22bf73;
+  font-size: 4rem;
+}
