@@ -8,9 +8,10 @@ wrapperDiv.classList.add('wrapper-div');
 
 const resultDiv = document.createElement('div');
 resultDiv.classList.add('result-div');
-wrapperDiv.appendChild(resultDiv);
 
 button.addEventListener('click', () => {
+  wrapperDiv.innerHTML = '';
+  wrapperDiv.appendChild(resultDiv);
   resultDiv.innerHTML = '';
 
   if (select.value == '') {
@@ -18,6 +19,9 @@ button.addEventListener('click', () => {
     body.appendChild(wrapperDiv);
   } else if (input.value == '') {
     resultDiv.textContent = 'Mass is required';
+    body.appendChild(wrapperDiv);
+  } else if (isNaN(input.value)) {
+    resultDiv.textContent = 'Mass must be a number';
     body.appendChild(wrapperDiv);
   } else {
     let imgUrl;
@@ -79,11 +83,27 @@ button.addEventListener('click', () => {
         break;
     }
     body.appendChild(wrapperDiv);
+
     const imgDiv = document.createElement('div');
     const imgPlanet = document.createElement('img');
+
     imgDiv.appendChild(imgPlanet);
     imgPlanet.setAttribute('src', imgUrl);
-    console.log(imgPlanet);
     wrapperDiv.insertBefore(imgDiv, resultDiv);
+
+    const spanPlanet = document.createElement('span');
+    spanPlanet.textContent = planetName;
+
+    const resultPlanet = document.createElement('p');
+    resultPlanet.textContent = `The weigth of the object on `;
+    resultPlanet.appendChild(spanPlanet);
+    resultDiv.appendChild(resultPlanet);
+
+    const resultCalcul = document.createElement('p');
+    resultCalcul.classList.add('result');
+    resultCalcul.textContent = `${
+      Math.round(planetGravity * input.value * 100) / 100
+    } N`;
+    resultDiv.appendChild(resultCalcul);
   }
 });
