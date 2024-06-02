@@ -121,3 +121,5 @@ languageButton.addEventListener('click', () => {
     statsDiv.appendChild(countryDiv);
   }
 });
+
+// second p
